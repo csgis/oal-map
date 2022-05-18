@@ -1,0 +1,82 @@
+/* sidebar container */
+
+.oal__sidebar, .oal__sidebar:hover {
+    left: 10px;
+    bottom: 10px;
+    background-color: #fff!important;
+    border: 1px solid #B30100;
+    border-radius: 0;
+    font-family: 'Lato', 'Arial', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+/* body container */
+.oag__layerswitcher_body {
+  clear: both;
+  padding: .5rem .5rem 1rem 1rem
+}
+
+.oag__layerswitcher_body {
+  display: none;
+}
+
+.oag__layerswitcher_body--block {
+  display: block;
+}
+
+.layerswitcher__headline {
+  color: #B30000;
+  margin-bottom: 0;
+  margin-top: .5rem;
+  font-weight: bold;
+}
+
+/* button */
+.oag__layerswitcher_button {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    border: 0;
+    margin: .5rem .5rem 0 0;
+    display: blockd;
+  }
+  
+  .oag__layerswitcher--open {
+    width: 300px;
+    background: #ccc;
+    overflow: auto;
+    height: auto;
+  }
+  
+  .oag__layerswitcher--open > .oag__layerswitcher_button {
+    float: right;
+  }
+
+  .oag__layerswitcher_button--minus {
+    background: url(https://www.oberallgaeu.org/fileadmin/templates/gfx/accordion-minus.svg);
+  }
+  
+  .oag__layerswitcher_button--plus {
+    background: url(https://www.oberallgaeu.org/fileadmin/templates/gfx/accordion-plus.svg)!important;
+  }
+  
+
+  /* Legend */
+  .oal__legend{
+    margin-left: 1rem
+  }
+
+ .legend_gfx{
+   display: inline-block;
+   height: 12px;
+   width: 12px;
+ }
+
+ .green{
+   background-color: green;
+ }
+
+ .blue{
+   background-color: blue;
+ }
