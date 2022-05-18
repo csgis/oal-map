@@ -30,6 +30,7 @@ const dop_80_layer = new TileLayer({
       params: {'LAYERS': 'by_dop80c', 'TILED': true, 'VERSION': '1.1.0'},
       // Countries have transparency, so do not fade tiles:
       transition: 0,
+      attributions: '<a href="https://geodatenonline.bayern.de/" target="_blank">geodatenonline.bayern.de</a>'
     }),
   })
 
