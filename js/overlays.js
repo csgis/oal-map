@@ -90,6 +90,7 @@ const geoJsonStyle  = function(feature){
 
 const geojson_layer = new VectorLayer({
     visible: true,
+    opacity: .8,
     title: 'geojson_layer',
     source: new VectorSource({
         url: 'static/data/test.json',

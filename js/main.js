@@ -4,6 +4,7 @@ import '../css/layerswitcher.css';
 
 import * as olExtent from 'ol/extent';
 
+import {FullScreen, defaults as defaultControls} from 'ol/control';
 import { Group as LayerGroup, Tile as TileLayer } from 'ol/layer';
 import {fromLonLat, toLonLat} from 'ol/proj';
 import {saveAs, toBlob} from 'file-saver';
@@ -21,7 +22,6 @@ import View from 'ol/View';
 import baseLayerGroup from './baselayer.js';
 import controlList from './controllist';
 import controls from './controls.js';
-import { defaults as defaultControls } from 'ol/control';
 import layerSwitcher from './layerswitcher';
 import overlayGroup from './overlays.js';
 
@@ -34,7 +34,7 @@ if (searchParams.has('lon') && searchParams.has('lat')){
 } else {
     var lon = 10.247935803982797;
     var lat = 47.42830595470386;
-    var zoom = 10;
+    var zoom = 4;
 }
 
 /** 
@@ -43,14 +43,14 @@ if (searchParams.has('lon') && searchParams.has('lat')){
 const map = new Map({
   controls: defaultControls().extend(controls),
   target: 'map',
-  controls: defaultControls().extend([new layerSwitcher(controlList)]),
+  controls: defaultControls().extend([new FullScreen(), new layerSwitcher(controlList)]),
 
   view: new View({
     center: fromLonLat([lon, lat]),
     zoom: zoom,
     rotation: 0,
     // minZoom: 1,
-    extent: [1097023.5784050967, 5984674.779996692, 1196835.9937393684, 6030415.204612381]
+    extent: [1080530.1497385548, 5965458.176883902, 1205892.975971601, 6038127.759589742]
   }),
 });
 
@@ -72,7 +72,6 @@ map.addOverlay(overlayLayer);
 const overlayFeatureName = document.getElementById('feature-name');
 
 map.on('click', function (evt) {
-  console.log(evt.coordinate)
   overlayLayer.setPosition(undefined);
   const feature = map.forEachFeatureAtPixel(evt.pixel, function (feature) {
     let clickedFeatureName = feature.get('name');
@@ -170,15 +169,6 @@ geolocation.on('change:position', function(e){
 
 
 const canvas = document.getElementById('canvas')
-
-
-
-
-
-
-
-
-
 function onMoveEnd(evt) {
   const map = evt.map;
   const lonLat = toLonLat( map.getView().getCenter());

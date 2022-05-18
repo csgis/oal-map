@@ -3,19 +3,20 @@ const controlList = {
         {
             "type": "checkbox", 
             "name": "overlayCheckButtons",
-            "value": "geojson_layer",
-            "id": "geojson",
-            "label": " Schutzgebiete",
-            "checked": true
-        },
-        {
-            "type": "checkbox", 
-            "name": "overlayCheckButtons",
             "value": "debug_layer",
             "id": "debug_layer",
             "label": " Granule",
             "checked": false
         },
+        {
+            "type": "checkbox", 
+            "name": "overlayCheckButtons",
+            "value": "geojson_layer",
+            "id": "geojson",
+            "label": " Schutzgebiete",
+            "checked": true
+        },
+
     ],
     "baselayer": [
         {
@@ -24,7 +25,7 @@ const controlList = {
         "value": "osm_standard_layer",
         "id": "osm_standard_layer",
         "label": " OSM Standard",
-        "checked": false
+        "checked": true
         },
         {
         "type": "radio", 
@@ -37,10 +38,10 @@ const controlList = {
         {
         "type": "radio", 
         "name": "baseLayerRadioButton",
-        "value": "stamen_layer",
-        "id": "stamen_layer",
-        "label": " stamen",
-        "checked": true
+        "value": "dop_80_layer",
+        "id": "dop_80_layer",
+        "label": " DOP80",
+        "checked": false
         }
     ]
 }
