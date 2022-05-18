@@ -26,19 +26,15 @@ import layerSwitcher from './layerswitcher';
 import overlayGroup from './overlays.js';
 
 let searchParams = new URLSearchParams(window.location.search)
-var lon;
-var lat;
+
 if (searchParams.has('lon') && searchParams.has('lat')){
-   lon = searchParams.get('lon');
-   lat = searchParams.get('lat');
-   searchParams.has('zoom')
-   zoom = searchParams.has('zoom') ? searchParams.get('zoom') : 8;
-   console.log(lon,lat, zoom)
+   var lon = searchParams.get('lon');
+   var lat = searchParams.get('lat');
+   var zoom = searchParams.has('zoom') ? searchParams.get('zoom') : 8;
 } else {
-   lon = 10.247935803982797;
-   lat = 47.42830595470386;
-   zoom = 10;
-   console.log(lon,lat, zoom)
+    var lon = 10.247935803982797;
+    var lat = 47.42830595470386;
+    var zoom = 10;
 }
 
 /** 
