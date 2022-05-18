@@ -26,7 +26,8 @@ import layerSwitcher from './layerswitcher';
 import overlayGroup from './overlays.js';
 
 let searchParams = new URLSearchParams(window.location.search)
-console.log(searchParams.has('lat'));
+var lon;
+var lat;
 if (searchParams.has('lon') && searchParams.has('lat')){
    lon = searchParams.get('lon');
    lat = searchParams.get('lat');
@@ -38,7 +39,6 @@ if (searchParams.has('lon') && searchParams.has('lat')){
    lat = 47.42830595470386;
    zoom = 10;
    console.log(lon,lat, zoom)
-
 }
 
 /** 
