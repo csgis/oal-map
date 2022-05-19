@@ -20,19 +20,19 @@ const controlList = {
     ],
     "baselayer": [
         {
+            "type": "radio", 
+            "name": "baseLayerRadioButton",
+            "value": "grau_layer",
+            "id": "grau_layer",
+            "label": " BKG Grau",
+            "checked": true
+        },        
+        {
         "type": "radio", 
         "name": "baseLayerRadioButton",
         "value": "osm_standard_layer",
         "id": "osm_standard_layer",
         "label": " OSM Standard",
-        "checked": true
-        },
-        {
-        "type": "radio", 
-        "name": "baseLayerRadioButton",
-        "value": "osm_humanitarian_layer",
-        "id": "osm_humanitarian_layer",
-        "label": " OSM Humanitarian",
         "checked": false
         },
         {

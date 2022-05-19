@@ -14,7 +14,7 @@
 /* body container */
 .oag__layerswitcher_body {
   clear: both;
-  padding: .5rem .5rem 1rem 1rem
+  padding: .5rem 1rem 1rem 1rem
 }
 
 .oag__layerswitcher_body {
@@ -43,7 +43,6 @@
   }
   
   .oag__layerswitcher--open {
-    width: 300px;
     background: #ccc;
     overflow: auto;
     height: auto;
