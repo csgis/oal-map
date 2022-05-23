@@ -2,10 +2,6 @@ import { Control } from 'ol/control';
 
 // Custom Control
 
-function hello(x){
-  console.log(x)
-}
-
 class layerSwitcher extends Control {
       /**
        * @param {Object} [opt_options] Control options.
@@ -22,6 +18,8 @@ class layerSwitcher extends Control {
         button.className = 'oag__layerswitcher_button oag__layerswitcher_button--minus';
         button.id = 'oag__layerswitcher_button';
         element.appendChild(button);
+
+    
 
         // create body container DIV for input list
         const oag__layerswitcher_body = document.createElement('div');

@@ -1,0 +1,10 @@
+#qr__canvas{
+    position: absolute;
+    right: -1200px;
+    top: 0;
+    width: 500px;
+    height: 400px;
+    background-color: #fff;
+    z-index: -1;
+    display: none;
+}

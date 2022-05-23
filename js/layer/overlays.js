@@ -1,5 +1,5 @@
 import 'ol/ol.css';
-import '../css/style.css';
+import '../../css/style.css';
 import TileLayer from 'ol/layer/Tile';
 import { Group as LayerGroup, Tile as TileLayer } from 'ol/layer';
 import TileDebug from 'ol/source/TileDebug';
