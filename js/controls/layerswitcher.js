@@ -19,8 +19,6 @@ class layerSwitcher extends Control {
         button.id = 'oag__layerswitcher_button';
         element.appendChild(button);
 
-    
-
         // create body container DIV for input list
         const oag__layerswitcher_body = document.createElement('div');
         oag__layerswitcher_body.className = 'oag__layerswitcher_body oag__layerswitcher_body--block';
@@ -38,14 +36,12 @@ class layerSwitcher extends Control {
         oag__layerswitcher_body.appendChild(heading);
         this.createLayerSwtichElements(oag__layerswitcher_body, options["overlays"])
 
-
         // create Legend
         const oag__legend = document.createElement('div');
         oag__legend.className = 'oag__legend';
         oag__legend.innerHTML = "<div class='oal__legend'><span class='legend_gfx green'></span> Naturschutzgebiet<br><span class='legend_gfx blue'></span> Wasserschutzgebiet</div>";
         oag__layerswitcher_body.appendChild(oag__legend);
 
-      
         // create basemap elements and headline
         var heading = document.createElement('h6');
         heading.className = 'layerswitcher__headline'

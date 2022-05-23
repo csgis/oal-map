@@ -18,11 +18,11 @@ class popOver extends Control {
         popover__close.innerHTML =  '&times;'
         element.appendChild(popover__close);
 
-                // bind toggle function to button
-                popover__close.addEventListener('click', function(){
-                  let oag__oal__popover_container = document.querySelector(".oal__popover");
-                  oag__oal__popover_container.classList.remove('oal__popover--show')
-              });
+        // bind toggle function to button
+        popover__close.addEventListener('click', function(){
+            let oag__oal__popover_container = document.querySelector(".oal__popover");
+            oag__oal__popover_container.classList.remove('oal__popover--show')
+        });
 
         const elementInner = document.createElement('div');
         elementInner.className = 'oal__popOver-content';
