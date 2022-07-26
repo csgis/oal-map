@@ -1,6 +1,7 @@
 import {fromLonLat, toLonLat} from 'ol/proj';
 
 import QRCode from 'qrcode'
+import { saveAs } from 'file-saver';
 
 const qrAction = (evt) => {
     const canvas = document.querySelector('.qr__canvas')
@@ -28,6 +29,11 @@ const qrAction = (evt) => {
               saveAs(blob, lonLat+'.png');
           });
         };
+        if(e.key === "Escape"){
+          let oag__oal__popover_container = document.querySelector(".oal__popover");
+          oag__oal__popover_container.classList.remove('oal__popover--show')
+        };
+
       };
 
 }

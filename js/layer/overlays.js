@@ -1,113 +1,179 @@
 import 'ol/ol.css';
 import '../../css/style.css';
-import TileLayer from 'ol/layer/Tile';
+
 import { Group as LayerGroup, Tile as TileLayer } from 'ol/layer';
-import TileDebug from 'ol/source/TileDebug';
-import TileWMS from 'ol/source/TileWMS';
-import VectorLayer from 'ol/layer/Vector';
-import GeoJSON from 'ol/format/GeoJSON';
-import VectorSource from 'ol/source/Vector';
-import Style from 'ol/style/Style';
+
 import Fill from 'ol/style/Fill';
+import GeoJSON from 'ol/format/GeoJSON';
 import Stroke from 'ol/style/Stroke';
-import RegularShape from 'ol/style/RegularShape';
-import CircleStyle from 'ol/style/Circle';
+import Style from 'ol/style/Style';
+import Text from 'ol/style/Text';
+import VectorLayer from 'ol/layer/Vector';
+import VectorSource from 'ol/source/Vector';
 
 // Overlays
-const debug_layer = new TileLayer({
-    source: new TileDebug(),
-    visible: false,
-    title: 'debug_layer'
-})
 
+var font = 'bold 14px "Open Sans", "Arial Unicode MS", "sans-serif"';
+const wwsg_color = 'red';
+const wsg_color = 'yellow';
+const lsg_color = 'violet';
 
-// Style for polygons
-const fillStyle = new Fill({
-    color: [10, 10, 247, 1]
-})
-
-const fillStyle2 = new Fill({
-    color: [100, 119, 247, .5]
-})
-
-const strokeStyle = new Stroke({
-    color: [40, 40, 247, 1],
-    width: 10
-})
-
-const regularShape = new RegularShape({
+// WALD WILD SCHONGEBIET
+const wwsg_style = new Style({
     fill: new Fill({
-        color: [40, 40, 247, .3]
+      color: wwsg_color,
     }),
-    stroke: strokeStyle,
-    points: 5,
-    radius: 20
-})
-
-const circleShape = new CircleStyle({
-    fill: new Fill({
-        color: [40, 40, 247, .3]
-    }),
-    stroke: strokeStyle,
-    radius: 20
-})
-
-const pointStyle = new Style({
-    image: new  CircleStyle({
+    text: new Text({
+        font: font,
+        placement: 'center',
         fill: new Fill({
-            color: [40, 40, 247, .3]
+          color: 'white',
         }),
-        stroke: strokeStyle,
-        radius: 20
-    })
-})
+      }),
+  });
 
-const polygonStyleBlue = new Style({
+
+const wwsgLayer = new VectorLayer({
+    visible: true,
+    opacity: .6,
+    zIndex: 4,
+    declutter: true,
+    title: 'Waldwirtschaftschutzgebiete',
+    source: new VectorSource({
+      url: 'static/data/wwsg.geojson',
+      format: new GeoJSON(),
+    }),
+    // style: geoJsonStyle
+    style: function (feature) {
+        wwsg_style.getText().setText(feature.get('name'));
+        return wwsg_style;
+      }
+  });
+
+
+// WALDSCHUTZGEBIET
+const wsg_style = new Style({
     fill: new Fill({
-        color: [0, 0, 255, 1]
-    })
-})
+      color: wsg_color
+    }),
+    text: new Text({
+        font: font,
+        placement: 'center',
+        fill: new Fill({
+          color: 'white',
+        }),
+      }),
+});
 
-const polygonStyleGreen = new Style({
-    fill: new Fill({
-        color: [0, 128, 0, 1]
-    })
-})
+const wsgLayer = new VectorLayer({
+    visible: true,
+    opacity: .5,
+    zIndex: 3,
+    title: 'Waldschutzgebiete',
+    source: new VectorSource({
+      url: 'static/data/wsg.geojson',
+      format: new GeoJSON(),
+    }),
+    style: function (feature) {
+        wsg_style.getText().setText(feature.get('name'));
+        return wsg_style;
+      }
+  });
 
-const geoJsonStyle  = function(feature){
-    let typ = feature.get('typ')
-    let geometryType = feature.getGeometry().getType()
 
-    if (geometryType === 'Point') {
-        feature.setStyle([pointStyle])
-    }
+// NATURSCHUTZGEBIET
 
-    if (geometryType === 'Polygon') {
-        feature.setStyle(typ == "water" ? [polygonStyleBlue] : [polygonStyleGreen])
-    }
+function drawPattern(img, size) {
+  var canvas = document.createElement('canvas');
+
+  canvas.height = 300;
+  canvas.width = 300;
+
+  var tempCanvas = document.createElement("canvas");
+  var tCtx = tempCanvas.getContext("2d");
+
+  tempCanvas.width = size;
+  tempCanvas.height = size;
+  tCtx.drawImage(img, 0, 0, img.width, img.height, 0, 0, size, size);
+
+  // use getContext to use the canvas for drawing
+  var ctx = canvas.getContext('2d');
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = ctx.createPattern(tempCanvas, 'repeat');
+
+  ctx.beginPath();
+  ctx.rect(0,0,canvas.width,canvas.height);
+  ctx.fill();
+  return ctx.fillStyle;
+}
+
+const NSG_style = new Style({
+  fill: new Fill(),
+  stroke: new Stroke({
+      color: 'white',
+      width: 4
+  })
+});
+
+var img = new Image();
+img.src = "/static/img/pattern.png";
+img.onload = function(){
+  const pattern = drawPattern(this, 150/20);
+  NSG_style.getFill().setColor(pattern);
 
 }
 
-const geojson_layer = new VectorLayer({
-    visible: true,
-    opacity: .8,
-    title: 'geojson_layer',
-    source: new VectorSource({
-        url: 'static/data/test.json',
-        format: new GeoJSON(),
+const nsgLayer = new VectorLayer({
+  visible: true,
+  opacity: .6,
+  declutter: true,
+  zIndex: 2,
+  title: 'Naturschutzgebiet',
+  source: new VectorSource({
+    url: 'static/data/nsg.geojson',
+    format: new GeoJSON(),
+  }),
+  style: function (feature) {
+      return NSG_style;
+    }
+});  
+
+
+// LANDSCHAFTSSCHUTZGEBIET
+const lsg_style = new Style({
+    fill: new Fill({
+      color: lsg_color,
     }),
-    style: geoJsonStyle
-    // style: new Style({
-    //     fill: fillStyle,
-    //     stroke: strokeStyle,
-    //     image: circleShape
-    // })
-})
+    stroke: new Stroke({
+        color: 'white',
+        width: 4
+    })
+  });
+
+
+const lsgLayer = new VectorLayer({
+    visible: true,
+    opacity: .6,
+    declutter: true,
+    zIndex: 1,
+    title: 'Landschaftsschutzgebiet',
+    source: new VectorSource({
+      url: 'static/data/lsg.geojson',
+      format: new GeoJSON(),
+    }),
+    style: function (feature) {
+        // lsg_style.getText().setText(feature.get('name'));
+        return lsg_style;
+      }
+  });
+
 
 const overlayGroup = new LayerGroup({
     layers: [
-        debug_layer,
-        geojson_layer
+        wwsgLayer,
+        wsgLayer,
+        nsgLayer,
+        lsgLayer
     ]
 })
 

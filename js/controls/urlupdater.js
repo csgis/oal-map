@@ -3,11 +3,11 @@ const urlupdater = map => {
     if (searchParams.has('lon') && searchParams.has('lat')) {
         lon = searchParams.get('lon');
         lat = searchParams.get('lat');
-        zoom = searchParams.has('zoom') ? searchParams.get('zoom') : 8;
+        zoom = searchParams.has('zoom') ? searchParams.get('zoom') : 10;
     } else {
-        lon = 10.247935803982797;
-        lat = 47.42830595470386;
-        zoom = 4;
+        lon = 10.307058194435557;
+        lat = 47.58605491416998;
+        zoom = 10;
     }
 }
 

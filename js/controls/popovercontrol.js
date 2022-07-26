@@ -1,4 +1,5 @@
 import { Overlay } from 'ol';
+import overlayGroup from '../layer/overlays.js';
 
 const popOverControl = (map) => {
     // Popover
@@ -12,21 +13,30 @@ const popOverControl = (map) => {
 
     map.on('click', function (evt) {
         popOverContainer.classList.remove('oal__popover--show');
-        const feature = map.forEachFeatureAtPixel(evt.pixel, function (feature) {
-            let clickedFeatureName = feature.get('name');
-            const coordinate = evt.coordinate;
+        popOverModal.innerHTML = ""
 
-            fetch('https://gist.githubusercontent.com/t-book/d396d4ddceb4866202c4b840cebd7435/raw/b1553cc3d00e91ac800647249f6febea12b83f59/gistfile1.txt')
-            .then(response => response.text())
-            .then(response => popOverModal.innerHTML = response + clickedFeatureName)
+        const featureArray = map.getFeaturesAtPixel(evt.pixel);
+        if (!featureArray) return;
+        const topFeature = featureArray[0];
 
-            popOverContainer.classList.add('oal__popover--show');
-            //popOverModal.innerHTML = clickedFeatureName
-        }, {
-            layerFilter: function (layerCandidate) {
-                return layerCandidate.get('title') === 'geojson_layer'
-            }
-        });
+        let clickedFeatureModal = topFeature.get('modal');
+        let clickedFeatureRule = topFeature.get('regelung') || "";
+        let clickedLayerName= topFeature.get('objectcode') || "";
+        let clickedFeatureName = topFeature.get('name');
+        const tmpl = '%TYP%<h3>%NAME% </h3><div class="comment"> %REGEL% Schutzzweck gilt nur für die Wintermonate und auf freiwilliger Basis.</div>%ICONS%</div>';
+        fetch(`./static/pages/${clickedFeatureModal}-icons.html`)
+        .then(response => response.text())
+        .then( 
+            response => {
+                var PopOverContent = tmpl
+                .replace("%TYP%", clickedLayerName) 
+                .replace("%NAME%", `${clickedFeatureName}  <br>`)
+                .replace("%REGEL%", clickedFeatureRule) 
+                .replace("%ICONS%", response)
+                popOverModal.innerHTML += PopOverContent
+                popOverContainer.classList.add('oal__popover--show');
+                }
+            )
     });
 }
 

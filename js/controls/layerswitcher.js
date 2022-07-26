@@ -32,20 +32,20 @@ class layerSwitcher extends Control {
         // create overlay elements and headline
         var heading = document.createElement('h6');
         heading.className = 'layerswitcher__headline'
-        heading.appendChild(document.createTextNode("Overlays"));
+        heading.appendChild(document.createTextNode("Schutzgebiete"));
         oag__layerswitcher_body.appendChild(heading);
         this.createLayerSwtichElements(oag__layerswitcher_body, options["overlays"])
 
         // create Legend
-        const oag__legend = document.createElement('div');
-        oag__legend.className = 'oag__legend';
-        oag__legend.innerHTML = "<div class='oal__legend'><span class='legend_gfx green'></span> Naturschutzgebiet<br><span class='legend_gfx blue'></span> Wasserschutzgebiet</div>";
-        oag__layerswitcher_body.appendChild(oag__legend);
+        // const oag__legend = document.createElement('div');
+        // oag__legend.className = 'oag__legend';
+        // oag__legend.innerHTML = "<div class='oal__legend'><span class='legend_gfx green'></span> Naturschutzgebiet<br><span class='legend_gfx blue'></span> Wasserschutzgebiet</div>";
+        // oag__layerswitcher_body.appendChild(oag__legend);
 
         // create basemap elements and headline
         var heading = document.createElement('h6');
         heading.className = 'layerswitcher__headline'
-        heading.appendChild(document.createTextNode("Baselayer"));
+        heading.appendChild(document.createTextNode("Basis Karten"));
         oag__layerswitcher_body.appendChild(heading);
         this.createLayerSwtichElements(oag__layerswitcher_body, options["baselayer"])
 
@@ -82,17 +82,20 @@ class layerSwitcher extends Control {
               checkbox.id = el["id"];
               checkbox.checked = el["checked"];
               checkbox.classList.add("layer__switcher")
-  
+              
               var label = document.createElement('label')
               label.htmlFor = "id";
               label.appendChild(document.createTextNode(el["label"]));
-              checkbox.addEventListener("change", function(){
-                console.log("ok")
-              })
   
-             containerElement.appendChild(checkbox);
-             containerElement.appendChild(label);
-             containerElement.appendChild(br);
+              containerElement.appendChild(checkbox);
+              if (el["group"] == "overlay") {
+                var legend = document.createElement('div')
+                legend.id = "l-"+el["id"];
+                legend.classList.add("legend__box")
+                containerElement.appendChild(legend);
+              }               
+              containerElement.appendChild(label);
+              containerElement.appendChild(br);
   
       });  
     }
