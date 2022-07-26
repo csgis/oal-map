@@ -15,6 +15,6 @@
     "copy-assets": "cp -r static/* dist/static",
     "init": "npm run clean-dist && npm run copy-assets",
     "start": "npm run init && parcel index.html",
-    "build": "npm run init && parcel build --public-url . index.html"
+    "build": "npm run init && parcel build --public-url '.' index.html"
   }
 }

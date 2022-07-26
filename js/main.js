@@ -21,13 +21,20 @@ import popOverControl from './controls/popovercontrol';
 import qrAction from './controls/qr_action';
 import qrGenerator from './controls/qrgenerator';
 import selectInteraction from './interactions/selectinteraction';
-import urlupdater from './controls/urlupdater';
 
 /** 
  * URL Handling
  */
- urlupdater()
-
+ let searchParams = new URLSearchParams(window.location.search);
+ if (searchParams.has('lon') && searchParams.has('lat')) {
+    var lon = searchParams.get('lon');
+    var lat = searchParams.get('lat');
+    var zoom = searchParams.has('zoom') ? searchParams.get('zoom') : 10;
+  } else {
+    var lon = 10.307058194435557;
+    var lat = 47.58605491416998;
+    var zoom = 10;
+  }
 /** 
  * MAP Object 
  */

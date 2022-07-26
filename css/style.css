@@ -89,8 +89,8 @@ html, body {
   }
 
   #l-nsg {
-    background: url(/static/img/pattern-red-white.png);
-    background-size: 10px;
+    background: url(/static/img/pattern.png);
+    background-size: 4px;
   }
 
   #l-lsq {

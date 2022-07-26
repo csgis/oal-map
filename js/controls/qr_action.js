@@ -18,7 +18,6 @@ const qrAction = (evt) => {
 
     QRCode.toCanvas(canvas, currentURL_string, { version: 10, scale: 10 }, function (error) {
         if (error) console.error(error)
-        console.log('success!');
     })
 
     document.onkeydown = function (e) {
