@@ -116,7 +116,7 @@ const NSG_style = new Style({
 });
 
 var img = new Image();
-img.src = "/static/img/pattern.png";
+img.src = "./static/img/pattern.png";
 img.onload = function(){
   const pattern = drawPattern(this, 150/20);
   NSG_style.getFill().setColor(pattern);
