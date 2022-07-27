@@ -19,6 +19,17 @@ class layerSwitcher extends Control {
         button.id = 'oag__layerswitcher_button';
         element.appendChild(button);
 
+          // create body container DIV for input list
+          const oag__layerswitcher_warning = document.createElement('div');
+          oag__layerswitcher_warning.className = 'oag__layerswitcher_warning oag__layerswitcher_body--block';
+          let warning_img = document.createElement('img');
+          warning_img.className = 'oag__layerswitcher_warning_img';
+          warning_img.src = './static/img/info.png';
+          warning_img.width = 16;
+          oag__layerswitcher_warning.appendChild(warning_img);
+          oag__layerswitcher_warning.appendChild(document.createTextNode("Abgefragt wird die oberste sichtbare Ebene."));
+          element.appendChild(oag__layerswitcher_warning);
+
         // create body container DIV for input list
         const oag__layerswitcher_body = document.createElement('div');
         oag__layerswitcher_body.className = 'oag__layerswitcher_body oag__layerswitcher_body--block';

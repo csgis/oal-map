@@ -8,14 +8,17 @@ const osm_standard_layer = new TileLayer({
     visible: false,
     preload: Infinity,
     title: 'osm_standard_layer',
+    attributions: '© <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors. | powered by: <a href="https://csgis.de">CSGIS</a>',
     source: new OSM()
 })
+
+
 
 const grau_layer = new TileLayer({
     source: new TileWMS({
         url: 'https://sgx.geodatenzentrum.de/wms_topplus_open?',
         params: {'LAYERS': 'web_grau', 'TILED': true, 'VERSION': '1.1.0'},
-        attributions: '<a href="https://sg.geodatenzentrum.de/web_public/Datenquellen_TopPlus_Open.html" target="_blank">https://sg.geodatenzentrum.de</a>'
+        attributions: '<a href="https://sg.geodatenzentrum.de/web_public/Datenquellen_TopPlus_Open.html" target="_blank">sg.geodatenzentrum.de</a> | powered by: <a href="https://csgis.de">CSGIS</a>'
     }
     ),
     visible: true,
@@ -32,7 +35,7 @@ const dop_80_layer = new TileLayer({
       params: {'LAYERS': 'by_dop80c', 'TILED': true, 'VERSION': '1.1.0'},
       // Countries have transparency, so do not fade tiles:
       transition: 0,
-      attributions: '<a href="https://geodatenonline.bayern.de/" target="_blank">geodatenonline.bayern.de</a>'
+      attributions: '<a href="https://geodatenonline.bayern.de/" target="_blank">geodatenonline.bayern.de</a> | powered by: <a href="https://csgis.de">CSGIS</a>'
     }),
   })
 

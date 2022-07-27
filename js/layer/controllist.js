@@ -15,9 +15,9 @@ const controlList = {
             "group": "overlay",
             "legend": "<b>X</b>",
             "name": "overlayCheckButtons",
-            "value": "Waldschutzgebiete",
+            "value": "Wildschutzgebiet",
             "id": "wsg",
-            "label": " Waldschutzgebiete",
+            "label": " Wildschutzgebiet",
             "checked": true
         },
         {

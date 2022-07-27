@@ -23,7 +23,15 @@ const popOverControl = (map) => {
         let clickedFeatureRule = topFeature.get('regelung') || "";
         let clickedLayerName= topFeature.get('objectcode') || "";
         let clickedFeatureName = topFeature.get('name');
-        const tmpl = '%TYP%<h3>%NAME% </h3><div class="comment"> %REGEL% Schutzzweck gilt nur für die Wintermonate und auf freiwilliger Basis.</div>%ICONS%</div>';
+
+        let regel2_msg = {
+            "Wald-Wild-Schongebiet" : "<br>Schutzzweck gilt nur für die Wintermonate und auf freiwilliger Basis",
+            "Wildschutzgebiet" : "<br>Schutzzweck gilt nur für die Wintermonate",
+            "Naturschutzgebiet" : "",
+            "Landschaftsschutzgebiet" : ""
+        }
+
+        const tmpl = '%TYP%<h3>%NAME% </h3><div class="comment"> %REGEL% %REGEL2%</div>%ICONS%</div>';
         fetch(`./static/pages/${clickedFeatureModal}-icons.html`)
         .then(response => response.text())
         .then( 
@@ -31,7 +39,8 @@ const popOverControl = (map) => {
                 var PopOverContent = tmpl
                 .replace("%TYP%", clickedLayerName) 
                 .replace("%NAME%", `${clickedFeatureName}  <br>`)
-                .replace("%REGEL%", clickedFeatureRule) 
+                .replace("%REGEL%", clickedFeatureRule)
+                .replace("%REGEL2%", regel2_msg[clickedLayerName])  
                 .replace("%ICONS%", response)
                 popOverModal.innerHTML += PopOverContent
                 popOverContainer.classList.add('oal__popover--show');

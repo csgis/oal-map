@@ -77,7 +77,8 @@ map.on('moveend', qrAction);
  * Register MAP Interactions 
  */
 
-selectInteraction(map)
+// Disabled for now
+// selectInteraction(map)
 
 
 

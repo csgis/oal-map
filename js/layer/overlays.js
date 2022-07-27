@@ -51,7 +51,7 @@ const wwsgLayer = new VectorLayer({
   });
 
 
-// WALDSCHUTZGEBIET
+// WILDSCHUTZGEBIET
 const wsg_style = new Style({
     fill: new Fill({
       color: wsg_color
@@ -60,7 +60,7 @@ const wsg_style = new Style({
         font: font,
         placement: 'center',
         fill: new Fill({
-          color: 'white',
+          color: 'black',
         }),
       }),
 });

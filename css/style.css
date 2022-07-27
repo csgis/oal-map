@@ -68,32 +68,3 @@ html, body {
     padding-left: 1rem;
   }
 
-  /* LEGEND */
-
-  .legend__box {
-    display: inline-block;
-    width: 12px;
-    height: 12px;
-    margin-left: 6px;
-  }
-
-  #l-wwsg{
-    background: #ff0000;
-    opacity: .6;
-  }
-
-  #l-wsg{
-    background: yellow;
-    border: 1px dotted #ccc;
-    opacity: 1;
-  }
-
-  #l-nsg {
-    background: url(/static/img/pattern.png);
-    background-size: 4px;
-  }
-
-  #l-lsq {
-    background: violet;
-    opacity: 1;
-  }
