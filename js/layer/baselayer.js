@@ -8,10 +8,11 @@ const osm_standard_layer = new TileLayer({
     visible: false,
     preload: Infinity,
     title: 'osm_standard_layer',
-    attributions: '© <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors. | powered by: <a href="https://csgis.de">CSGIS</a>',
     source: new OSM()
 })
 
+osm_attr = osm_standard_layer.get('source').setAttributions('<li>© <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors. | powered by: <a href="https://csgis.de">CSGIS</a></li>')
+console.log(osm_attr)
 
 
 const grau_layer = new TileLayer({
