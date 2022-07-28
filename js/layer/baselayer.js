@@ -11,8 +11,7 @@ const osm_standard_layer = new TileLayer({
     source: new OSM()
 })
 
-osm_attr = osm_standard_layer.get('source').setAttributions('<li>© <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors. | powered by: <a href="https://csgis.de">CSGIS</a></li>')
-console.log(osm_attr)
+osm_standard_layer.get('source').setAttributions('<li>© <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors. | powered by: <a href="https://csgis.de">CSGIS</a></li>')
 
 
 const grau_layer = new TileLayer({
