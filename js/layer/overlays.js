@@ -69,7 +69,7 @@ const wsgLayer = new VectorLayer({
     visible: true,
     opacity: .5,
     zIndex: 3,
-    title: 'Waldschutzgebiete',
+    title: 'Wildschutzgebiet',
     source: new VectorSource({
       url: 'static/data/wsg.geojson',
       format: new GeoJSON(),
