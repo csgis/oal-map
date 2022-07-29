@@ -1,5 +1,7 @@
 @keyframes animatetop{from{top:-10px;opacity:0} to{top:0;opacity:1}}
 
+
+
 .oal__popover {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -13,6 +15,35 @@
     background-color: rgba(255,255,255,1); /* Black w/ opacity */
      /* animation: animatetop 1s;  */
     border: 1px solid #B30200; 
+}
+
+@media (max-width: 800px) {
+  .oal__popover {
+      z-index: 1;
+      width: 96%;
+      height: 100%;
+      background-color: #fff;
+      border: 1px solid #b30200;
+      display: none;
+      position: fixed;
+      top: 2%;
+      right: 2%;
+      overflow: auto;
+  }
+
+  .oal__popOver-content h3 {
+    font-size: 1.2rem;
+  }
+
+  .picto {
+    width: 40px;
+  }
+
+  .picto__desc {
+    font-weight: 400;
+    font-size: 0.9rem;
+  }
+
 }
 
 .oal__popOver-content{
@@ -45,3 +76,5 @@
   .oal__popOver-content h3 {
     padding-right: 1rem;
   }
+
+

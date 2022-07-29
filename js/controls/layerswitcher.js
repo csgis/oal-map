@@ -64,14 +64,17 @@ class layerSwitcher extends Control {
         button.addEventListener('click', function(){
           var oag__layerswitcher_container = document.querySelector(".oag__layerswitcher");
           var oag__layerswitcher_body = document.querySelector(".oag__layerswitcher_body");
+          var oag__layerswitcher_warning = document.querySelector(".oag__layerswitcher_warning");
 
           if (this.classList.contains("oag__btn--closed")) {
             oag__layerswitcher_body.classList.add("oag__layerswitcher_body--block");
+            oag__layerswitcher_warning.classList.add("oag__layerswitcher_body--block");
             this.classList.remove("oag__layerswitcher_button--plus");
             this.classList.remove("oag__btn--closed");
             oag__layerswitcher_container.classList.add("oag__layerswitcher--open");
           } else {
             oag__layerswitcher_body.classList.remove("oag__layerswitcher_body--block");
+            oag__layerswitcher_warning.classList.remove("oag__layerswitcher_body--block");
             this.classList.add("oag__layerswitcher_button--plus");
             this.classList.add("oag__btn--closed");
             oag__layerswitcher_container.classList.remove("oag__layerswitcher--open");
