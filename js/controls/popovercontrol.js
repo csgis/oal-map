@@ -23,6 +23,8 @@ const popOverControl = (map) => {
         let clickedFeatureRule = topFeature.get('regelung') || "";
         let clickedLayerName= topFeature.get('objectcode') || "";
         let clickedFeatureName = topFeature.get('name');
+        if (!clickedFeatureModal) return;
+
 
         let regel2_msg = {
             "Wald-Wild-Schongebiet" : "<br>Schutzzweck gilt nur für die Wintermonate und auf freiwilliger Basis",

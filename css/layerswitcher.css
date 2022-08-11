@@ -96,12 +96,12 @@
 }
 
 #l-wwsg{
-  background: #ff0000;
+  background: yellow;
   opacity: .6;
 }
 
 #l-wsg{
-  background: yellow;
+  background: red;
   border: 1px dotted #ccc;
   opacity: 1;
 }

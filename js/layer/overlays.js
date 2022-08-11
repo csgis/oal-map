@@ -14,9 +14,10 @@ import VectorSource from 'ol/source/Vector';
 // Overlays
 
 var font = 'bold 14px "Open Sans", "Arial Unicode MS", "sans-serif"';
-const wwsg_color = 'red';
-const wsg_color = 'yellow';
+const wwsg_color = 'yellow';
+const wsg_color = 'red';
 const lsg_color = 'violet';
+const oa_color = 'white';
 
 // WALD WILD SCHONGEBIET
 const wwsg_style = new Style({
@@ -167,13 +168,39 @@ const lsgLayer = new VectorLayer({
       }
   });
 
+// OA
+const oa_style = new Style({
+
+  stroke: new Stroke({
+      color: 'red',
+      width: 2
+  })
+});
+
+
+const oa_Layer = new VectorLayer({
+  visible: true,
+  opacity: 1,
+  declutter: true,
+  zIndex: 20,
+  title: 'Oberallgäu',
+  source: new VectorSource({
+    url: 'static/data/landkreis.geojson',
+    format: new GeoJSON(),
+  }),
+  style: function (feature) {
+      // lsg_style.getText().setText(feature.get('name'));
+      return oa_style;
+    }
+});
 
 const overlayGroup = new LayerGroup({
     layers: [
         wwsgLayer,
         wsgLayer,
         nsgLayer,
-        lsgLayer
+        lsgLayer,
+        oa_Layer
     ]
 })
 
