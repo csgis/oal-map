@@ -170,22 +170,20 @@ const lsgLayer = new VectorLayer({
 
 // OA
 const oa_style = new Style({
-
-  stroke: new Stroke({
-      color: 'red',
-      width: 2
+  fill: new Fill({
+    color: 'white',
   })
 });
 
 
 const oa_Layer = new VectorLayer({
   visible: true,
-  opacity: 1,
+  opacity: 0.6,
   declutter: true,
   zIndex: 20,
   title: 'Oberallgäu',
   source: new VectorSource({
-    url: 'static/data/landkreis.geojson',
+    url: 'static/data/maske.geojson',
     format: new GeoJSON(),
   }),
   style: function (feature) {
