@@ -16,8 +16,8 @@ osm_standard_layer.get('source').setAttributions('<li>© <a href="https://www.op
 
 const grau_layer = new TileLayer({
     source: new TileWMS({
-        url: 'https://sgx.geodatenzentrum.de/wms_topplus_open?',
-        params: {'LAYERS': 'web_grau', 'TILED': true, 'VERSION': '1.1.0'},
+        url: 'https://sgx.geodatenzentrum.de/wms_basemapde?',
+        params: {'LAYERS': 'de_basemapde_web_raster_grau', 'TILED': true, 'VERSION': '1.1.0'},
         attributions: '<a href="https://sg.geodatenzentrum.de/web_public/Datenquellen_TopPlus_Open.html" target="_blank">sg.geodatenzentrum.de</a> | powered by: <a href="https://csgis.de">CSGIS</a>'
     }
     ),
