@@ -10,7 +10,7 @@ const qrAction = (evt) => {
     const lonLat = toLonLat(map.getView().getCenter());
     const c_zoom = map.getView().getZoom();
     let baseUrl = window.location.href.split("?")[0];
-    window.history.pushState('name', '', baseUrl); s
+    window.history.pushState('name', '', baseUrl);
     let currentURL = window.location.href;
     window.history.replaceState("", "", currentURL + "?lon=" + lonLat[0] + "&lat=" + lonLat[1] + "&zoom=" + c_zoom);
 

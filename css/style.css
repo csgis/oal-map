@@ -18,6 +18,7 @@ html, body {
 
 .ol-control button {
     background-color: rgba(179, 0, 0, 1);
+    color: #fff!important;
 }
 
 .ol-control button:hover, .ol-control button:focus {

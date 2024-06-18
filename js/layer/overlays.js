@@ -14,7 +14,7 @@ import VectorSource from 'ol/source/Vector';
 // Overlays
 
 var font = 'bold 14px "Open Sans", "Arial Unicode MS", "sans-serif"';
-const wwsg_color = 'yellow';
+const wwsg_color = '#fbff00';
 const wsg_color = 'red';
 const lsg_color = 'violet';
 const oa_color = 'white';

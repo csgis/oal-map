@@ -1,20 +1,21 @@
 {
-  "name": "lra",
-  "dependencies": {
-    "file-saver": "^2.0.5",
-    "ol": "6.14.1",
-    "parcel-bundler": "^1.12.5",
-    "qrcode": "^1.5.0"
-  },
-  "devDependencies": {
-    "buffer": "^6.0.3",
-    "parcel": "^2.0.0"
-  },
-  "scripts": {
-    "clean-dist": "rm -rf dist && mkdir -p dist/static/data",
-    "copy-assets": "cp -r static/* dist/static",
-    "init": "npm run clean-dist && npm run copy-assets",
-    "start": "npm run init && parcel index.html",
-    "build": "npm run init && parcel build --public-url '.' index.html"
-  }
+    "name": "lra",
+    "dependencies": {
+        "file-saver": "^2.0.5",
+        "ol": "^9.2.4",
+        "parcel": "^2.12.0",
+        "qrcode": "^1.5.3"
+    },
+    "devDependencies": {
+        "buffer": "^6.0.3",
+        "deasync": "^0.1.30",
+        "parcel": "^2.12.0"
+    },
+    "scripts": {
+        "clean-dist": "rm -rf dist && mkdir -p dist/static/data",
+        "copy-assets": "cp -r static/* dist/static",
+        "init": "npm run clean-dist && npm run copy-assets",
+        "start": "npm run init && touch index.html && parcel index.html --no-cache",
+        "build": "npm run init && parcel build --public-url '.' index.html"
+    }
 }
