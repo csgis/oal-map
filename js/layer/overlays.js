@@ -46,6 +46,7 @@ const wwsgLayer = new VectorLayer({
     }),
     // style: geoJsonStyle
     style: function (feature) {
+       console.log(feature.get('Name')); 
         wwsg_style.getText().setText(feature.get('name'));
         return wwsg_style;
       }

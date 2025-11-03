@@ -50938,6 +50938,7 @@ const wwsgLayer = new (0, _vectorDefault.default)({
     }),
     // style: geoJsonStyle
     style: function(feature) {
+        console.log(feature.get("Name"));
         wwsg_style.getText().setText(feature.get("name"));
         return wwsg_style;
     }
@@ -52095,7 +52096,7 @@ const popOverControl = (map)=>{
         if (!clickedFeatureModal) return;
         let regel2_msg = {
             "Wald-Wild-Schongebiet": "<br>Schutzzweck gilt nur f\xfcr die Wintermonate und auf freiwilliger Basis (01.12 bis 31.03)",
-            "WWSG": "<br>Schutzzweck gilt nur f\xfcr die Wintermonate und auf freiwilliger Basis (01.12 bis 31.03)",
+            "WWSG": "<br>Schutzzweck gilt nur f\xfcr die Wintermonate und auf freiwilliger Basis (15.12 bis 30.04)",
             "Wildschutzgebiet": "<br>Schutzzweck gilt nur f\xfcr die Wintermonate",
             "WSG": "<br>Schutzzweck gilt nur f\xfcr die Wintermonate",
             "Naturschutzgebiet": "",

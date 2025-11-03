@@ -31,7 +31,7 @@ const popOverControl = (map) => {
 
         let regel2_msg = {
             "Wald-Wild-Schongebiet" : "<br>Schutzzweck gilt nur für die Wintermonate und auf freiwilliger Basis (01.12 bis 31.03)",
-            "WWSG" : "<br>Schutzzweck gilt nur für die Wintermonate und auf freiwilliger Basis (01.12 bis 31.03)",
+            "WWSG" : "<br>Schutzzweck gilt nur für die Wintermonate und auf freiwilliger Basis (15.12 bis 30.04)",
             "Wildschutzgebiet" : "<br>Schutzzweck gilt nur für die Wintermonate",
             "WSG" : "<br>Schutzzweck gilt nur für die Wintermonate",
             "Naturschutzgebiet" : "",
