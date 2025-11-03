@@ -4,7 +4,7 @@
         "file-saver": "^2.0.5",
         "ol": "^9.2.4",
         "parcel": "^2.12.0",
-        "qrcode": "^1.5.3"
+        "qrcode": "^1.5.0"
     },
     "devDependencies": {
         "buffer": "^6.0.3",
@@ -16,6 +16,6 @@
         "copy-assets": "cp -r static/* dist/static",
         "init": "npm run clean-dist && npm run copy-assets",
         "start": "npm run init && touch index.html && parcel index.html --no-cache",
-        "build": "npm run init && parcel build --public-url '.' index.html"
+        "build": "npm run init && parcel build --log-level verbose --no-cache  --public-url '.' index.html"
     }
 }

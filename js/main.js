@@ -39,7 +39,6 @@ import selectInteraction from './interactions/selectinteraction';
  * MAP Object 
  */
 const map = new Map({
-  controls: defaultControls().extend(controls),
   target: 'map',
   controls: defaultControls().extend(
     [
