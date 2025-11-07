@@ -31,8 +31,8 @@ const dop_80_layer = new TileLayer({
     title: 'dop_80_layer',
     visible: false,
     source: new TileWMS({
-      url: 'https://geoservices.bayern.de/wms/v2/ogc_dop80_oa.cgi?',
-      params: {'LAYERS': 'by_dop80c', 'TILED': true, 'VERSION': '1.1.0'},
+      url: 'https://geoservices.bayern.de/od/wms/dop/v1/dop20?',
+      params: {'LAYERS': 'by_dop20c', 'TILED': true, 'VERSION': '1.1.0'},
       // Countries have transparency, so do not fade tiles:
       transition: 0,
       attributions: '<a href="https://geodatenonline.bayern.de/" target="_blank">geodatenonline.bayern.de</a> | powered by: <a href="https://csgis.de">CSGIS</a>'

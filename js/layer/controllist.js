@@ -66,7 +66,7 @@ const controlList = {
             "name": "baseLayerRadioButton",
             "value": "dop_80_layer",
             "id": "dop_80_layer",
-            "label": " DOP80",
+            "label": " DOP20",
             "checked": false
         }
     ]
